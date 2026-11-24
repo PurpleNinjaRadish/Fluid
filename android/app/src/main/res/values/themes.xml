@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.Fluid" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:colorPrimary">@color/fluid_blue</item>
+        <item name="android:colorAccent">@color/fluid_blue</item>
+        <item name="android:windowBackground">@color/fluid_page</item>
+        <item name="android:statusBarColor">@color/fluid_page</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+</resources>

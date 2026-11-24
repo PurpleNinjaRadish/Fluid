@@ -1,0 +1,106 @@
+/* Fluid: one column for a phone or tablet; Odin's fonts, with Fluid's own blue. The reading screen (#fl) is Odin's (odin/fluency.css). */
+:root {
+  --bg: #F2F5F8; --surface: #FFFFFF; --sunk: #E8EEF3; --ink: #14212B; --muted: #52616E; --line: #D5DEE6;
+  --accent: #1D6A96; --accent-ink: #FFFFFF; --accent-soft: #E1EEF6;
+  --ongrade: #1C6E4A; --ongrade-bg: #DCEFE4; --approaching: #8F6410; --approaching-bg: #F8ECCF; --support: #B9402A; --support-bg: #F9E1DB;
+  --f-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --f-body: "Atkinson Hyperlegible Next", "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: "Atkinson Hyperlegible Mono", ui-monospace, Menlo, Consolas, monospace;
+  --r: 12px; color-scheme: light;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0F151B; --surface: #172029; --sunk: #1F2A35; --ink: #E6EEF4; --muted: #9AABB9; --line: #2C3946;
+  --accent: #7CC0EA; --accent-ink: #0B1720; --accent-soft: #1A3040;
+  --ongrade: #6FCF9E; --ongrade-bg: #15301F; --approaching: #E2B65E; --approaching-bg: #362C15; --support: #F0907A; --support-bg: #3A1F19; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #0F151B; --surface: #172029; --sunk: #1F2A35; --ink: #E6EEF4; --muted: #9AABB9; --line: #2C3946;
+  --accent: #7CC0EA; --accent-ink: #0B1720; --accent-soft: #1A3040;
+  --ongrade: #6FCF9E; --ongrade-bg: #15301F; --approaching: #E2B65E; --approaching-bg: #362C15; --support: #F0907A; --support-bg: #3A1F19; color-scheme: dark }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 16px; line-height: 1.5; padding: env(safe-area-inset-top, 0) 0 env(safe-area-inset-bottom, 0); }
+h1, h2, h3 { font-family: var(--f-display); font-weight: 650; margin: 0; letter-spacing: -0.01em; text-wrap: balance; }
+h2 { font-size: 1.2rem; } h3 { font-size: 1rem; }
+p { margin: 0; }
+button, select, input, textarea { font: inherit; color: inherit; }
+a { color: var(--accent); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.muted { color: var(--muted); } .small { font-size: 0.86rem; } .mono { font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+
+header.top { background: var(--surface); border-bottom: 1px solid var(--line); }
+header.top .wrap { display: flex; align-items: center; gap: 10px 14px; flex-wrap: wrap; padding-block: 12px; }
+.brand { display: flex; align-items: center; gap: 10px; margin-right: auto; }
+.brand svg { flex: none; }
+.brand h1 { font-size: 1.4rem; line-height: 1.1; }
+.brand .sub { font-size: 0.8rem; color: var(--muted); }
+.chip { display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; padding: 3px 10px; font-size: 0.8rem; font-weight: 600; background: var(--accent-soft); color: var(--accent); white-space: nowrap; }
+
+main { padding-block: 18px 48px; display: grid; gap: 16px; }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 16px; display: grid; gap: 12px; min-width: 0; }
+.panel > .head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 12px; }
+.btn { border: 0; border-radius: 10px; padding: 11px 18px; font-weight: 600; cursor: pointer; background: var(--accent); color: var(--accent-ink); text-align: center; }
+.btn.ghost { background: transparent; color: var(--ink); box-shadow: inset 0 0 0 1px var(--line); }
+.btn.sm { padding: 6px 12px; font-size: 0.88rem; border-radius: 8px; }
+.btn.big { font-size: 1.12rem; padding: 14px 22px; }
+.btn:disabled { opacity: .5; cursor: default; }
+.row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.notice { border-radius: 10px; padding: 12px 14px; border: 1px solid var(--accent); background: var(--accent-soft); display: grid; gap: 6px; }
+.notice.bad { border-color: var(--support); background: var(--support-bg); }
+.notice.ok { border-color: var(--ongrade); background: var(--ongrade-bg); }
+label.field { display: grid; gap: 4px; font-size: 0.9rem; }
+.panel input:not([type]), .panel input[type=password], .panel select, .panel textarea { border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; background: var(--surface); min-width: 0; }
+.panel textarea { width: 100%; resize: vertical; line-height: 1.55; font-size: 1rem; }
+.linkbtn { border: 0; background: none; padding: 0; color: var(--accent); cursor: pointer; text-decoration: underline; font-size: inherit; }
+
+/* the microphone's status: Odin's .flstatus */
+.flstatus { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; padding: 10px 12px; border-radius: 10px; background: var(--sunk); font-size: 0.92rem; }
+.flstatus > span { flex: 1 1 280px; }
+.flstatus.ok { background: var(--ongrade-bg); }
+.flstatus.mid { background: var(--approaching-bg); }
+.flstatus.no { background: var(--support-bg); }
+
+/* levels and passages */
+.levels { display: flex; gap: 6px; flex-wrap: wrap; }
+.levels button { border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 6px 14px; font-weight: 600; cursor: pointer; }
+.levels button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.plist { display: grid; gap: 8px; }
+.pitem { display: grid; grid-template-columns: 1fr auto; gap: 2px 10px; align-items: center; text-align: left; border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; background: var(--surface); cursor: pointer; }
+.pitem:hover { border-color: var(--accent); }
+.pitem[aria-expanded="true"] { border-color: var(--accent); background: var(--accent-soft); }
+.pitem b { font-weight: 650; }
+.pitem .meta { grid-column: 1 / -1; font-size: 0.84rem; color: var(--muted); }
+.tag { font-size: 0.75rem; font-weight: 700; border-radius: 999px; padding: 1px 8px; background: var(--sunk); color: var(--muted); }
+.pick { display: grid; gap: 12px; border: 1px solid var(--accent); border-radius: 12px; padding: 14px; }
+.pick .preview { font-size: 1.08rem; line-height: 1.75; max-height: 13.5em; overflow: auto; padding: 10px 12px; border-radius: 10px; background: var(--sunk); }
+.pick .preview p { margin: 0 0 .55em; }
+.modes { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 8px; }
+.mode { display: grid; gap: 3px; text-align: left; border: 1px solid var(--line); background: var(--surface); border-radius: 12px; padding: 12px 14px; cursor: pointer; }
+.mode b { font-size: 1.02rem; }
+.mode span { font-size: 0.85rem; color: var(--muted); }
+.mode.main { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.mode.main span { color: inherit; opacity: .85; }
+.mode:disabled { opacity: .5; cursor: default; }
+
+/* readings this session */
+table.runs { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+table.runs th, table.runs td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--line); }
+table.runs td.n { font-family: var(--f-mono); text-align: right; }
+.scroller { overflow-x: auto; }
+
+/* the reading screen: Fluid's additions to Odin's */
+#fl .fltext.marks .flw.m-x { background: var(--support-bg); color: var(--support); text-decoration: line-through; }
+#fl .fltext.marks .flw.m-o { color: var(--muted); text-decoration: line-through dotted; }
+#fl .fltext.marks .flw.m-s { background: var(--approaching-bg); color: var(--approaching); text-decoration: underline; }
+#fl .fltext.marks { font-size: 1.15rem; line-height: 1.85; padding: 16px 18px; width: 100%; }
+#fl .legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 0.85rem; color: var(--muted); }
+#fl .legend span::before { content: ""; display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 5px; vertical-align: -1px; background: var(--sunk); }
+#fl .legend .lx::before { background: var(--support-bg); box-shadow: inset 0 0 0 1px var(--support); }
+#fl .legend .ls::before { background: var(--approaching-bg); box-shadow: inset 0 0 0 1px var(--approaching); }
+#fl .legend .lo::before { background: transparent; box-shadow: inset 0 0 0 1px var(--muted); }
+#fl .flgoal { color: var(--muted); }
+details.aiset { border: 1px dashed var(--line); border-radius: 10px; padding: 10px 12px; }
+details.aiset > * + * { margin-top: 8px; }
+details.aiset summary { cursor: pointer; }
+.warnx { color: var(--support); }
+@media (max-width: 480px) { .btn.big { width: 100%; } }

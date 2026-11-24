@@ -1,0 +1,67 @@
+{
+ "odinVersion": "0.10.0-alpha",
+ "odinCommit": "198d36ef13cdb36339abbaec1eb96a706c4c742c",
+ "copied": "2026-11-24",
+ "files": {
+  "ai.js": {
+   "from": "page-src/src/ai.js",
+   "sha256": "981a5b266fd5ebe2790229baf1a4761a72f0cb264eee2113411d6770bdd0246f"
+  },
+  "android.js": {
+   "from": "page-src/src/android.js",
+   "sha256": "97803df76e2220d89cfca140ad62fe05349a1b6fdd6c874231cea5e9d9debeb9"
+  },
+  "fluency.css": {
+   "from": "page-src/src/fluency.css",
+   "sha256": "5b4b66c5cfcecd0afb1000e0c4776b2dfb1ae3f2cb1036b4a3a08c913ea0ef98"
+  },
+  "fluency.js": {
+   "from": "page-src/src/fluency.js",
+   "sha256": "5ab4577ecfe2a4aa56f73c7e51fff7b73216c9d2a8bc97dcde29e4c17a916ab2"
+  },
+  "fluency_passages.js": {
+   "from": "page-src/src/fluency_passages.js",
+   "sha256": "1355709e767549e6687520b443cff770d4345abf2c2e0a774aec97edb87c845b"
+  },
+  "fonts/LICENSE-atkinson-hyperlegible-mono.txt": {
+   "from": "public/fonts/LICENSE-atkinson-hyperlegible-mono.txt",
+   "sha256": "05327050630a640eb824c8fcb7de8b2e605600d8863e4f531ca7c348239916c6"
+  },
+  "fonts/LICENSE-atkinson-hyperlegible-next.txt": {
+   "from": "public/fonts/LICENSE-atkinson-hyperlegible-next.txt",
+   "sha256": "474a034e99845062f661855caaa505880d0e9009deddc2727a92795eab374955"
+  },
+  "fonts/LICENSE-bricolage-grotesque.txt": {
+   "from": "public/fonts/LICENSE-bricolage-grotesque.txt",
+   "sha256": "923f4ddf0fd39f9b7794ab0df7332f3d95dc43e8ad7ec2289d6d9e8491177f51"
+  },
+  "fonts/atkinson-hyperlegible-mono-latin-400-normal.woff2": {
+   "from": "public/fonts/atkinson-hyperlegible-mono-latin-400-normal.woff2",
+   "sha256": "87b5b94c18025729fc6ed4e8c25221ade3746dc87213943fa4de49f1f0f26787"
+  },
+  "fonts/atkinson-hyperlegible-mono-latin-600-normal.woff2": {
+   "from": "public/fonts/atkinson-hyperlegible-mono-latin-600-normal.woff2",
+   "sha256": "a52c1396b3cc1b7c7e52dcb39ed9ed2aeb1b7b0ff3572bca076e441aa7d906f6"
+  },
+  "fonts/atkinson-hyperlegible-next-latin-400-normal.woff2": {
+   "from": "public/fonts/atkinson-hyperlegible-next-latin-400-normal.woff2",
+   "sha256": "5cb240a4d99ab7e6fc3a4d4e6d11d89789fdffe9c86a8384000d662c53283f6f"
+  },
+  "fonts/atkinson-hyperlegible-next-latin-600-normal.woff2": {
+   "from": "public/fonts/atkinson-hyperlegible-next-latin-600-normal.woff2",
+   "sha256": "828f4525c741b6864718e41aa23a4acbc049b35e6271317c0fd86e0702dd5d2e"
+  },
+  "fonts/atkinson-hyperlegible-next-latin-700-normal.woff2": {
+   "from": "public/fonts/atkinson-hyperlegible-next-latin-700-normal.woff2",
+   "sha256": "0dbe07ed7679407db9d90f747d5ca3bd1b2bb7ccbcbe41c8246cfc6d2c7bc3bc"
+  },
+  "fonts/bricolage-grotesque-latin-opsz-normal.woff2": {
+   "from": "public/fonts/bricolage-grotesque-latin-opsz-normal.woff2",
+   "sha256": "a79fdb52d4a5c76552452f69202add96e287401fff03d3e8c0e38b4dcb5a99cd"
+  },
+  "fonts/fonts.css": {
+   "from": "public/fonts/fonts.css",
+   "sha256": "bddbcb265c8b17476a19a2b6c25dc111e870987f27d3b19f97b134759641bd47"
+  }
+ }
+}

@@ -1,0 +1,85 @@
+
+/* ===== Odin 0.5: fluency practice ===== */
+.flstatus { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; padding: 10px 12px; border-radius: 10px; background: var(--sunk); font-size: 0.92rem; }
+.flstatus > span { flex: 1 1 320px; }
+.flstatus.ok { background: var(--ongrade-bg); }
+.flstatus.mid { background: var(--approaching-bg); }
+.flstatus.no { background: var(--support-bg); }
+.fltab .schip small { font-size: 0.75em; opacity: .8; margin-left: 2px; }
+.flbadges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+.flbadge { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px 4px 6px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font-size: 0.85rem; }
+.flbadge b { font-weight: 600; }
+.flbadge small { font-family: var(--f-mono); }
+.flbadge.off { background: var(--sunk); color: var(--muted); opacity: .75; }
+.flbadge.big { flex-direction: column; gap: 4px; padding: 12px 14px; border-radius: 14px; font-size: 1rem; min-width: 110px; text-align: center; }
+.flchart { max-width: 760px; }
+.flline { stroke: var(--accent); stroke-width: 2; }
+.flline.pre { stroke-dasharray: 5 4; opacity: .7; }
+.flexam .flxclock { font-size: 1.3rem; padding: 2px 10px; border-radius: 8px; background: var(--sunk); align-self: center; }
+.flsum { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 0.95rem; }
+.fllegend { display: flex; flex-wrap: wrap; gap: 8px; }
+.fltext { font-size: 1.15rem; line-height: 1.9; max-width: 72ch; }
+.fltext p { margin: 0 0 .6em; }
+.fltext.big { font-size: 1.45rem; line-height: 2; }
+.fltext.exam button.flw { font: inherit; border: 0; background: none; color: var(--ink); padding: 1px 3px; margin: 0 -1px; border-radius: 5px; cursor: pointer; }
+.fltext.exam button.flw:hover { background: var(--sunk); }
+.fltext.exam button.flw:focus-visible { outline: 2px solid var(--accent); }
+.flw.m-x { background: var(--support-bg); color: var(--support); text-decoration: line-through; }
+.flw.m-o { background: var(--support-bg); color: var(--support); text-decoration: line-through dotted; }
+.flw.m-s { background: var(--approaching-bg); color: var(--approaching); text-decoration: underline; }
+.flw.m-c { box-shadow: inset 0 -2px 0 var(--ongrade); }
+.flw.m-u { border-bottom: 2px dotted var(--muted) !important; border-radius: 0 !important; }
+.fllegend .flw { padding: 1px 6px; border-radius: 5px; }
+.flw.after { color: var(--muted); }
+.flw.lastw { outline: 2px solid var(--accent); }
+.flprint { font-size: 15pt; line-height: 2; }
+.flprint.big { font-size: 19pt; }
+.flprint h2 { font-size: 18pt; margin-bottom: 10pt; }
+
+/* the reading screen */
+#fl { position: fixed; inset: 0; z-index: 60; background: var(--bg); color: var(--ink); overflow: auto; display: flex; flex-direction: column; }
+#fl .smtop { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 10px 16px; border-bottom: 1px solid var(--line); background: var(--surface); font-size: 0.95rem; color: var(--muted); }
+#fl .smbody { flex: 1; display: grid; align-content: start; justify-items: center; gap: 16px; padding: 22px 16px 120px; }
+#fl .smcard { width: min(640px, 100%); background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 24px; display: grid; gap: 14px; justify-items: start; box-sizing: border-box; }
+#fl .smcard.wide { width: min(820px, 100%); }
+#fl h2 { font-family: var(--f-display); font-size: clamp(1.4rem, 1.1rem + 1.4vw, 2rem); line-height: 1.25; margin: 0; }
+#fl p { margin: 0; }
+#fl .smkind { font-size: 0.85rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); font-weight: 700; }
+#fl .smbig { font-size: 1.3rem; }
+#fl .btn.big { font-size: 1.15rem; padding: 12px 26px; }
+#fl .smrow { display: flex; flex-wrap: wrap; gap: 10px; }
+#fl .flbest { padding: 8px 12px; border-radius: 10px; background: var(--accent-soft); }
+#fl .flmic { font-size: 1.1rem; }
+#fl .flmic.warn { color: var(--support); }
+#fl .flread { width: min(980px, 100%); display: grid; gap: 12px; }
+#fl .flhead { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+#fl .flclock { font-family: var(--f-mono); font-size: 1.05rem; }
+#fl .flclock #fl-clock { font-size: 1.5rem; font-weight: 700; color: var(--ink); }
+#fl .flprog { height: 8px; border-radius: 999px; background: var(--sunk); overflow: hidden; }
+#fl .flprog i { display: block; height: 100%; width: 0; background: var(--ongrade); transition: width .3s; }
+#fl .fltext { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 22px 26px; font-size: clamp(1.35rem, 1.1rem + 0.9vw, 1.75rem); line-height: 1.85; max-width: none; }
+#fl .fltext.big { font-size: clamp(1.6rem, 1.3rem + 1.2vw, 2.2rem); line-height: 2; }
+#fl .flw { border-radius: 6px; padding: 0 2px; transition: background .2s, color .2s; }
+#fl .practice .flw.ok { color: var(--ongrade); }
+#fl .practice .flw.given { color: var(--approaching); }
+#fl .practice .flw.cur { box-shadow: inset 0 -3px 0 var(--accent); }
+#fl .flw.focus { background: var(--approaching-bg); color: var(--ink); outline: 3px solid var(--approaching); }
+#fl .flsay { position: fixed; left: 50%; bottom: 22px; transform: translateX(-50%) translateY(20px); max-width: min(720px, calc(100% - 32px)); padding: 12px 18px; border-radius: 14px; background: var(--ink); color: var(--bg); font-size: 1.15rem; box-shadow: 0 6px 22px rgba(0, 0, 0, .25); opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s; }
+#fl .flsay.on { opacity: 1; transform: translateX(-50%) translateY(0); }
+#fl .fldone .flstats { display: flex; flex-wrap: wrap; gap: 12px; width: 100%; }
+#fl .flstats > div { flex: 1 1 160px; display: grid; gap: 2px; padding: 14px; border-radius: 12px; background: var(--sunk); }
+#fl .flstats b { font-family: var(--f-display); font-size: 2.2rem; line-height: 1.1; }
+#fl .flstats span { color: var(--muted); }
+#fl .flnew { display: grid; gap: 8px; }
+#fl .flgo { background: var(--ongrade); border-color: var(--ongrade); }
+#fl .pin.big { font-size: 2rem; width: 6em; text-align: center; }
+@media print { .flprint { font-size: 15pt; } }
+/* 0.8.2: a small "Listening" sign on the reading screen; the dot grows with the student's voice */
+#fl .flmicl { display: inline-flex; align-items: center; gap: 8px; font-size: 0.9rem; color: var(--muted); min-height: 1.4em; }
+#fl .flmicl i { width: 12px; height: 12px; border-radius: 50%; background: var(--line); flex: none; transition: background .2s, box-shadow .12s; }
+#fl .flmicl.ready i { background: var(--ongrade); box-shadow: 0 0 0 calc(var(--lv, 0) * 7px) color-mix(in srgb, var(--ongrade) 30%, transparent); }
+#fl .flmicl.on .lbl { color: var(--ongrade); }
+#fl .flmicl.hush { visibility: hidden; }
+@media (prefers-reduced-motion: reduce) { #fl .flmicl i { transition: none; } }
+.flmeter { display: block; width: min(240px, 100%); height: 8px; margin-top: 6px; border-radius: 4px; background: var(--line); overflow: hidden; }
+.flmeter i { display: block; height: 100%; width: 0; background: var(--ongrade); transition: width .1s; }

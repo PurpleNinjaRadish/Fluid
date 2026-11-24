@@ -1,0 +1,74 @@
+# Builds Fluid for Android, checks it on an Android 14 emulator, and puts the app (fluid-android.apk), the build log and
+# the check's screenshots on the android-build branch; when everything passed, the app also goes on the "latest" release
+# (the Tools Hub's APK link). No student information is involved.
+name: Fluid for Android
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "android/**"
+      - "web/**"
+      - "odin/**"
+      - "VERSION"
+      - ".github/workflows/android.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: android
+  cancel-in-progress: true
+
+jobs:
+  app:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      # The page goes into the app (android/app/src/main/assets/web).
+      - name: Build Fluid's page
+        run: python3 web/build.py
+
+      - name: Build the app
+        id: build
+        working-directory: android
+        run: |
+          set -o pipefail
+          chmod +x gradlew
+          ./gradlew --no-daemon --stacktrace assembleRelease assembleDebug 2>&1 | tee ../build-log.txt
+
+      - name: Turn on the emulator's hardware acceleration
+        if: steps.build.outcome == 'success'
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+
+      - name: Check the app on an Android 14 emulator
+        id: check
+        if: steps.build.outcome == 'success'
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          target: google_apis
+          arch: x86_64
+          disable-animations: true
+          emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -no-boot-anim -camera-back none -camera-front none
+          script: bash android/ci/emulator-check.sh
+
+      - name: Put the app and the results on the android-build branch (and the release)
+        if: always()
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BUILD_RESULT: ${{ steps.build.outcome }}
+          CHECK_RESULT: ${{ steps.check.outcome }}
+        run: bash android/ci/publish.sh
