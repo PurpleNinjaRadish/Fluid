@@ -1,0 +1,6 @@
+FLUID-REPORT hello {"level":null,"open":null,"speech":"available","reading":null,"runs":0,"android":true,"version":"0.1.0-alpha","bridge":true,"shim":true,"info":{"t":"reply","id":"q1","app":"0.1.0-alpha-debug","sdk":34,"onDevice":true,"tts":1}} (:1)
+FLUID-REPORT speech {"status":"available","why":"silent"} (:1)
+FLUID-REPORT voice ["start","end"] (:1)
+FLUID-REPORT sample {"step":"done","finished":true,"wcpm":111,"acc":96} (:1)
+FLUID-REPORT ai {"words":45,"error":""} (:1)
+FLUID-REPORT listen ["start","error:language-not-supported","end"] (:1)

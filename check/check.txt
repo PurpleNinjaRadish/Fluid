@@ -1,0 +1,8 @@
+ok   Fluid opens in the app, with its bridge to Android's speech: {'level': None, 'open': None, 'speech': 'available', 'reading': None, 'runs': 0, 'android': True, 'version': '0.1.0-alpha', 'bridge': True, 'shim': True, 'info': {'t': 'reply', 'id': 'q1', 'app': '0.1.0-alpha-debug', 'sdk': 34, 'onDevice': True, 'tts': 1}}
+ok   Android answered whether it can recognize speech on the device: {'status': 'available', 'why': 'silent'}
+ok   the device's voice speaks through the app: ['start', 'end']
+ok   a sample reading runs from start to finish in the app: {'step': 'done', 'finished': True, 'wcpm': 111, 'acc': 96}
+ok   the app called the stand-in AI and a passage came back: {'words': 45, 'error': ''}
+ok   a listening session starts and ends cleanly (on the emulator, Android may have no English speech pack): ['start', 'error:language-not-supported', 'end']
+ok   the app never crashed
+ALL EMULATOR CHECKS PASSED
