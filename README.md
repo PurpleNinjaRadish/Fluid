@@ -4,7 +4,8 @@
 reader is stuck or misreads it, has the reader say it again, praises, and shows **words correct per minute** and
 accuracy. Fluid stands alone: no sign-in and no server, and **nothing about readers is kept**.
 
-- **Web version:** <https://purpleninjaradish.github.io/Fluid/> (and <https://purpleninjaradish.github.io/Odin-2/fluid/>)
+- **Web version:** <https://purpleninjaradish.github.io/Odin-2/fluid/>, and <https://purpleninjaradish.github.io/Fluid/> once
+  GitHub Pages is turned on here (Settings › Pages › Source: GitHub Actions)
 - **Android app:** [fluid-android.apk](https://github.com/PurpleNinjaRadish/Fluid/releases/latest/download/fluid-android.apk)
   (the latest build that passed its emulator check; Android 12 or newer for the microphone)
 
