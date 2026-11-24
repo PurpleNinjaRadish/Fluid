@@ -6,7 +6,7 @@ accuracy. Fluid stands alone: no sign-in and no server, and **nothing about read
 
 - **Web version:** <https://purpleninjaradish.github.io/Odin-2/fluid/>, and <https://purpleninjaradish.github.io/Fluid/> once
   GitHub Pages is turned on here (Settings › Pages › Source: GitHub Actions)
-- **Android app:** [fluid-android.apk](https://github.com/PurpleNinjaRadish/Fluid/releases/latest/download/fluid-android.apk)
+- **Android app:** [fluid-android.apk](https://github.com/PurpleNinjaRadish/Fluid/raw/android-build/fluid-android.apk)
   (the latest build that passed its emulator check; Android 12 or newer for the microphone)
 
 Version 0.1.0-alpha. Its passages, scoring and reading screen come from [Odin](https://github.com/PurpleNinjaRadish/project-cerabus)'s
@@ -80,8 +80,8 @@ saved. In the Android app, the app makes the call, and the AI's address must sta
 
 Build: `python3 web/build.py` (Python 3.9+). Test: `python3 web/tests/test_fluid.py` (Playwright and Chromium).
 The app: `cd android && ./gradlew assembleRelease` (JDK 17, Android SDK), or let GitHub build it
-(`.github/workflows/android.yml`: the app and the emulator check go on the `android-build` branch, and the app on the
-`latest` release). The test key in `android/keys` signs these builds; for a school or district, build with its own key
+(`.github/workflows/android.yml`: the app and the emulator check go on the `android-build` branch, where the link above
+finds the app). The test key in `android/keys` signs these builds; for a school or district, build with its own key
 (`FLUID_KEYSTORE`, `FLUID_KEY_ALIAS`, `FLUID_KEY_PASS`).
 
 **Keeping Fluid in step with Odin.** When Odin's fluency passages, scoring, AI helpers or speech shim change, run

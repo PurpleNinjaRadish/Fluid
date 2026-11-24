@@ -1,6 +1,6 @@
 # Builds Fluid for Android, checks it on an Android 14 emulator, and puts the app (fluid-android.apk), the build log and
-# the check's screenshots on the android-build branch; when everything passed, the app also goes on the "latest" release
-# (the Tools Hub's APK link). No student information is involved.
+# the check's screenshots on the android-build branch, where the README's and the Tools Hub's APK link finds it. No student
+# information is involved.
 name: Fluid for Android
 
 on:
@@ -64,7 +64,7 @@ jobs:
           emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -no-boot-anim -camera-back none -camera-front none
           script: bash android/ci/emulator-check.sh
 
-      - name: Put the app and the results on the android-build branch (and the release)
+      - name: Put the app and the results on the android-build branch
         if: always()
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

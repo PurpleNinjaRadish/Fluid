@@ -22,9 +22,9 @@ github.com/PurpleNinjaRadish/project-cerabus (Project Cerberus). Fluid stands al
 ## The web copy
 - GitHub Pages here (`.github/workflows/pages.yml`, once Pages is on), and a copy in the Odin-2 repository's `fluid/`
   folder (purpleninjaradish.github.io/Odin-2/fluid/): copy `dist/` there with each release.
-- The Tools Hub (github.com/PurpleNinjaRadish/Github.io) links the web version and the APK on the `latest` release.
+- The Tools Hub (github.com/PurpleNinjaRadish/Github.io) links the web version and the APK on the android-build branch.
 
 ## Checks
 - `python3 web/tests/test_fluid.py` (Playwright and Chromium; it starts a stand-in AI on port 8095).
 - CI: `.github/workflows/pages.yml` (page tests, then GitHub Pages) and `android.yml` (app build, emulator check,
-  android-build branch, and the `latest` release when everything passed).
+  and the app and the check's results on the android-build branch).
